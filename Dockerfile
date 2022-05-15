@@ -25,4 +25,4 @@ FROM nginx:latest
 COPY --from=build /usr/local/app/dist/gestaodeclientesweb /usr/share/nginx/html
 
 # Expose port 80
-EXPOSE $PORT
+EXPOSE 80
