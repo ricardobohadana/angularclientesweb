@@ -1,0 +1,57 @@
+<div class="card">
+  <div class="card-content">
+    <div class="card-title">
+      <h3 class="italic uppercase">Clientes cadastrados:</h3>
+    </div>
+    <table class="responsive-table striped highlight">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>CPF</th>
+          <th>Data de Nascimento</th>
+          <th>
+            <a class="waves-effect waves-light btn italic">
+              <i class="material-icons left">add</i>
+              Novo Cliente
+            </a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of clientes">
+          <td>{{ cliente.nome }}</td>
+          <td>{{ cliente.email }}</td>
+          <td>{{ cliente.cpf }}</td>
+          <td>{{ cliente.dataNascimento | date: "dd/MM/yyyy" }}</td>
+          <td>
+            <a
+              [routerLink]="['/editar', cliente.idCliente]"
+              class="waves-effect waves-light btn italic yellow darken-3 col"
+              id="{{ cliente.idCliente }}"
+            >
+              Editar
+            </a>
+            <div class="col"></div>
+            <button
+              (click)="excluirCliente(cliente.idCliente)"
+              href=""
+              class="waves-effect waves-light btn italic red col"
+              id="{{ cliente.idCliente }}"
+            >
+              Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5">
+            <hr />
+            Quantidade de produtos: {{ clientes.length }}
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

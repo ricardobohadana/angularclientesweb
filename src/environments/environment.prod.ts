@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: 'http://clienteapi-001-site1.htempurl.com/',
 };

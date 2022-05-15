@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title">
+          <h4 class="italic uppercase">Criação de cliente</h4>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="input-field col s6">
+              <input
+                id="first_name"
+                type="text"
+                class="validate"
+                formControlName="Nome"
+              />
+              <label for="first_name">Nome</label>
+            </div>
+            <div class="input-field col s6">
+              <input
+                id="email"
+                type="email"
+                class="validate"
+                formControlName="Email"
+              />
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input
+                id="cpf"
+                type="text"
+                class="validate"
+                formControlName="Cpf"
+              />
+              <label for="cpf">Cpf</label>
+              <span class="helper-text">Insira apenas números</span>
+            </div>
+
+            <div class="input-field col s6">
+              <input
+                id="date"
+                type="Date"
+                class="validate"
+                formControlName="DataNascimento"
+              />
+              <label for="cpf">Data de nascimento</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <button
+              *ngIf="showSpinner === true"
+              class="indigo darken-4 btn col s3"
+            >
+              <div class="preloader-wrapper small active">
+                <div class="spinner-layer">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                    <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+            </button>
+            <input
+              *ngIf="showSpinner === false"
+              class="btn italic indigo darken-4 col s3"
+              type="submit"
+              value="Criar Cliente"
+              [disabled]="!form.valid"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
